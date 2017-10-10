@@ -47,16 +47,6 @@ on init
     # Freezer setup
     write /dev/freezer/frozen/freezer.killable 1
 
-    # Add a cpuset for the camera daemon
-    # We want all cores for camera
-    mkdir /dev/cpuset/camera-daemon
-    write /dev/cpuset/camera-daemon/cpus 0-7
-    write /dev/cpuset/camera-daemon/mems 0
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
-    chmod 0660 /dev/cpuset/camera-daemon/tasks
-    mkdir /dev/stune/camera-daemon
-
     # Report max frequency to unity tasks
     write /proc/sys/kernel/sched_lib_name "com.miHoYo.,libunity.so,libfb.so"
     write /proc/sys/kernel/sched_lib_mask_force 255
@@ -94,6 +84,13 @@ on init
 
 on early-fs
     start vold
+
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0-7
+    write /dev/cpuset/camera-daemon/mems 0
+    chown system system /dev/cpuset/camera-daemon
+    chown system system /dev/cpuset/camera-daemon/tasks
+    chmod 0664 /dev/cpuset/camera-daemon/tasks
 
 on fs
     start hwservicemanager
