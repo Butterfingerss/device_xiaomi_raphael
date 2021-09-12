@@ -310,6 +310,8 @@ on property:vendor.post_boot.parsed=1
     # Enable oom_reaper
     write /sys/module/lowmemorykiller/parameters/oom_reaper 1
 
+    setprop vendor.setup.power 1
+
 service vendor.pd_mapper /vendor/bin/pd-mapper
     class core
     user system
