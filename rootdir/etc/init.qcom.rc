@@ -358,13 +358,6 @@ service vendor.qcom-sh /vendor/bin/init.qcom.sh
     group root system radio
     oneshot
 
-service vendor.qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
-    class late_start
-    user root
-    group root system wakelock graphics
-    disabled
-    oneshot
-
 on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1
 
@@ -389,7 +382,6 @@ service vendor.power-hal /vendor/bin/hw/android.hardware.power-service-qti
 
 on charger
     setprop persist.sys.usb.config mass_storage
-    start vendor.qcom-post-boot
 
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
