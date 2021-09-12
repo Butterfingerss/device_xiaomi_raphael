@@ -321,6 +321,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.qcom_ramdisk \
     fstab.qcom \
+    init.power.rc \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
