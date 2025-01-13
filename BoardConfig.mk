@@ -140,15 +140,11 @@ TARGET_PROVIDES_LIBLIGHT := true
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
 
 # Media
-<<<<<<< HEAD
-TARGET_USES_ION := true
-=======
 TARGET_DISABLED_UBWC := true
 TARGET_USES_ION := true
 
 # Partitions
 BOARD_USES_METADATA_PARTITION := true
->>>>>>> 63195af... raphael: Remove no longer used display flags
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
